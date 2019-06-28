@@ -4,7 +4,6 @@ import cv2
 import numpy
 
 from abstract.frame_filter import FrameFilter
-from geometry import *
 from number_recognizer import NumberRecognizer
 from numberarea import NumberArea
 import numpy as np
@@ -192,6 +191,9 @@ class NumberAreaFilter(FrameFilter):
                 longest_val = length
 
         return longest_line
+
+    def line_length(self, w, v=(0, 0)):
+        return sqrt((v[0] + w[0]) ** 2 + (v[1] + w[1]) ** 2)
 
     def rect_dims(self, rect):
         if isinstance(rect, NumberArea):
